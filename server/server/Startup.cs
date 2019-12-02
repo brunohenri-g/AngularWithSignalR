@@ -21,6 +21,7 @@ namespace server
                 .AllowCredentials());
             });
 
+            services.AddControllers();
             services.AddSignalR();
         }
 
@@ -42,6 +43,7 @@ namespace server
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<TaskHub>("/hub");
+                endpoints.MapDefaultControllerRoute();
                 //endpoints.MapGet("/", async context =>
                 //{
                 //    await context.Response.WriteAsync("Hello World!");

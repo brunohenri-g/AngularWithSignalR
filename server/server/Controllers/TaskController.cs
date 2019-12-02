@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.SignalR;
 using server.Hubs;
 using System.Threading.Tasks;
+using System;
 
 namespace server.Controllers
 {
@@ -20,6 +21,7 @@ namespace server.Controllers
             {
                 await _hubContext.Clients.Group("TASKID").SendAsync("progress", i);
                 await Task.Delay(100);
+                Console.WriteLine("Error");
             }
 
         }
